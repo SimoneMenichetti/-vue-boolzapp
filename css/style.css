@@ -2,20 +2,27 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: "Lato", sans-serif;
+    font-size: 13px;
 }
 
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+main{
+    background-color: #DBDBD3;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
 
 /* container generale app  */
 
-.app-container {
+#app {
     display: flex;
-    height: 100vh;
-    width: 100%;
+    width: 80%;
+    height: 85%;
 }
 /* sezione Sidebar  */
 .sidebar {
@@ -23,25 +30,27 @@ body {
     background-color: #eaeaea;
     display: flex;
     flex-direction: column;
-    padding: 2px;
+    border-right: #B1B1BB solid 1px; 
 }
 /* sezione profilo utente ed avatar*/
 .profile {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     position: relative;
+    margin-left: 10px;
+    margin-top: 5px;
 }
 
 .avatar {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     background-color: #ccc;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 14px;
     margin-right: 10px;
 }
 
@@ -53,11 +62,13 @@ body {
     position: absolute;
     right: 0;
     margin-right: 10px;
+    color: #B1B1B1;
     
 }
 
 i{
-    color: #B1B1B1;
+    
+    font-size: 15px;
 }
 
 i:hover {
@@ -71,7 +82,7 @@ i:hover {
     position: absolute;
     right: 0;
     margin-right: 10px;
-    
+    color: #B1B1B1;
 }
 
 /* icone chat input */
@@ -80,33 +91,78 @@ i:hover {
     display: flex;
     align-items: center;
     font-size: 18px;
+    color: #6B7376;
     
 }
 
 .before{
-    padding-left: 30px;
+    padding-left: 15px;
+    margin-right: 20px;
 }
 
 .after{
-    padding-right: 30px;
+    padding-right: 15px;
+    margin-left: 20px;
 }
 
-
+.top{
+    margin-right: 2px;
+}
 
 
 /* sezione notifiche */
 .notifications {
-    margin-bottom: 20px;
     display: flex;
+    background-color: #8EDAFC;
+    padding: 10px;
 }
 
-.text-notifications{
-   margin-top: 7px;
+
+.text-notifications a{
+    color: #666;
+}
+/* style icons bell */
+
+.notifications .avatar .fa-solid {
+    color: #8EDAFC ;
+    background-color: #fff;
+
+}
+
+.bell{
+    background: #fffd;
+  }
+
+  /* search bar */
+  .search-chat {
+    display: flex;
+    align-items: center;
+    background-color:  #fffd;
+    padding: 5px;
+    border-bottom:rgba(128, 128, 128, 0.3) solid 1px;
+    
+}
+.glass-icon {
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.input-search {
+   width: 100%;
+  
+}
+
+.input-search input {
+    width: 100%;
+    border: none;
+    padding: 5px;
 }
 
 .contact-list {
     flex-grow: 1;
-    overflow-y: auto;
+    overflow-y: scroll;
     background-color: #fafafa;
 }
 
@@ -116,12 +172,16 @@ i:hover {
     align-items: center;
     list-style: none;
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
     
 }
 
 .contact:hover {
     background-color: #ddd;
+}
+
+.contact p{
+    color: #aaa;
 }
 
 
@@ -130,6 +190,9 @@ i:hover {
     position: absolute;
     right: 0;
     top: 20%;
+    margin-right: 3px;
+    color: #aaa;
+    font-size: 10px;
 }
 
 /* sezione chat inviate e ricevute */
@@ -147,7 +210,6 @@ i:hover {
     padding: 5px;
     background-color:#EAEAEA;
     border-bottom: 1px solid #ccc;
-    border-left: #B1B1B1 solid 1px;
     position: relative;
 }
 
@@ -156,7 +218,11 @@ i:hover {
     padding: 20px;
     width: 100%;
     background-color: #fafafa;
-    overflow-y: auto;
+    overflow-y: scroll;
+}
+
+.chat-info p{
+    color: #aaa;
 }
 
 .message {
@@ -172,29 +238,27 @@ i:hover {
 }
 
 .message span {
-    font-size: 12px;
-    color: #666;
+    font-size: 10px;
+    color: #aaa;
     position: absolute;
     bottom: 5px;
     right: 10px;
 }
 
-.sent {
+.received{
     
     width: 300px;
     background-color: #D5F9BA;
     margin-left: auto;
-    padding: 20px;
     margin-top: 30px;
-    text-align: left;
+    
 }
 
-.received {
-    width: 300px;
-    padding: 20px;
+.sent {
+    max-width: 200px;
     background-color: #fff;
     border: 1px solid #ccc;
-    text-align: left;
+   
 }
 
 .chat-input {
@@ -205,8 +269,8 @@ i:hover {
     background-color: #EAEAEA;
 }
 
-.chat-input input {
-    width: 700px;
+.chat-input input{
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
