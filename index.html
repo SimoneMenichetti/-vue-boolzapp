@@ -14,166 +14,188 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- googlefont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="app-container">
-        <!-- inserimento sidebar per nome utente e avatar -->
-        <div class="sidebar">
-            <div class="profile">
-                <div class="avatar">NU</div>
-                <h3>Nome Utente</h3>
-                <div class="profile-icons">
-                    <i class="fa-solid fa-rotate-left"></i>
-                    <i class="fa-solid fa-message"></i>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                </div>
-                
-            </div>
-            <!-- notifiche di chat  -->
-            <div class="notifications">
-                <div class="avatar">
-                    <i class="fa-solid fa-bell-slash"></i>
-                </div>
-                <div class="text-notifications">
-                    <p>Ricevi notifiche di nuovi messaggi</p>
-                    <a href="#">Attiva notifiche desktop</a>
-                </div>
-                
-            </div>
-            <!-- placeholder per la ricerca utente inizio chat -->
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
-            <!-- container della lista contatti -->
-            <div class="contact-list">
-                <!-- utenti e profili miei ultimi contatti -->
-                <ul class="contact">
-                    <li class="avatar">
-                        <i class="fas fa-user"></i>
-                    </li>
-                    <li> 
-                        <h4>Michele</h4>
-                        <p>Ultimo messaggio inviato</p>
-                         <span class="last-date">12:00</span>
-                    </li>
-                </ul>
-
-                <ul class="contact">
-                    <li class="avatar">
-                        <i class="fas fa-user"></i>
-                    </li>
-                    <li> 
-                        <h4>Fabio</h4>
-                        <p>Ultimo messaggio inviato</p>
-                        <span class="last-date">12:00</span>
-                    </li>
-                </ul>
-
-                <ul class="contact">
-                    <li class="avatar">
-                        <i class="fas fa-user"></i>
-                    </li>
-                    <li> 
-                        <h4>Samuele</h4>
-                        <p>Ultimo messaggio inviato</p>
-                        <span class="last-date">12:00</span>
-                    </li>
-                </ul>
-
-                <ul class="contact">
-                    <li class="avatar">
-                        <i class="fas fa-user"></i>
-                    </li>
-                    <li> 
-                        <h4>Alessandro.B</h4>
-                        <p>Ultimo messaggio inviato</p>
-                        <span class="last-date">12:00</span>
-                    </li>
-                </ul>
-
-                <ul class="contact">
-                    <li class="avatar">
-                        <i class="fas fa-user"></i>
-                    </li>
-                    <li> 
-                        <h4>Alessandro.L</h4>
-                        <p>Ultimo messaggio inviato</p>
-                        <span class="last-date">12:00</span>
-                    </li>
-                </ul>
-
-                <ul class="contact">
-                    <li class="avatar">
-                        <i class="fas fa-user"></i>
-                    </li>
-                    <li> 
-                        <h4>Claudia</h4>
-                        <p>Ultimo messaggio inviato</p>
-                        <span class="last-date">12:00</span>
-                    </li>
-                </ul>
-
-                <ul class="contact">
-                    <li class="avatar">
-                        <i class="fas fa-user"></i>
-                    </li>
-                    <li> 
-                        <h4>Federico</h4>
-                        <p>Ultimo messaggio inviato</p>
-                        <span class="last-date">12:00</span>
-                    </li>
-                </ul>
-
-                <ul class="contact">
-                    <li class="avatar">
-                        <i class="fas fa-user"></i>
-                    </li>
-                    <li> 
-                        <h4>Davide</h4>
-                        <p>Ultimo messaggio inviato</p>
-                        <span class="last-date">12:00</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- container delle chat effettuate -->
-        <div class="chat-container">
-            <div class="chat-header">
-                
-                <div class="avatar">
-
-                </div>
-                <div class="chat-icons-sidebar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <i class="fa-solid fa-paperclip"></i>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                </div>
-               
-                
-            </div>
-            <!-- messaggi inviati e ricevuti -->
-            <div class="chat-messages">
-                <div class="message sent">
+    <main>
+        <div id="app" class="container">
+            <!-- inserimento sidebar per nome utente e avatar -->
+            <div class="sidebar">
+                <div class="profile">
+                    <div class="avatar top">
+                        <img class="" src="./img/Cartoons__Anime_Dragonball_Artboard_1-512.webp" alt="">
+                    </div>
+                    <h3>Nome Utente</h3>
+                    <div class="profile-icons">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
                     
                 </div>
-                <div class="message received">
-                   
+                <!-- notifiche di chat  -->
+                <div class="notifications">
+                    <div class="avatar bell">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="text-notifications">
+                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>
+                    
                 </div>
-                <div class="message received">
-                   
+
+                <div class="search-chat">
+                    <!-- placeholder per la ricerca utente inizio chat -->
+                     <div class="glass-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="input-search">
+                        <input  type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+                <!-- container della lista contatti -->
+                <div class="contact-list">
+                    <!-- utenti e profili miei ultimi contatti -->
+                    <ul class="contact">
+                        <li class="avatar">
+                            <i class="fas fa-user"></i>
+                        </li>
+                        <li> 
+                            <h4>Michele</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul>
+
+                    <ul class="contact">
+                        <li class="avatar">
+                            <i class="fas fa-user"></i>
+                        </li>
+                        <li> 
+                            <h4>Fabio</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul>
+
+                    <ul class="contact">
+                        <li class="avatar">
+                            <i class="fas fa-user"></i>
+                        </li>
+                        <li> 
+                            <h4>Samuele</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul>
+
+                    <ul class="contact">
+                        <li class="avatar">
+                            <i class="fas fa-user"></i>
+                        </li>
+                        <li> 
+                            <h4>Alessandro.B</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul>
+
+                    <ul class="contact">
+                        <li class="avatar">
+                            <i class="fas fa-user"></i>
+                        </li>
+                        <li> 
+                            <h4>Alessandro.L</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul>
+
+                    <ul class="contact">
+                        <li class="avatar">
+                            <i class="fas fa-user"></i>
+                        </li>
+                        <li> 
+                            <h4>Claudia</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul>
+
+                    <ul class="contact">
+                        <li class="avatar">
+                            <i class="fas fa-user"></i>
+                        </li>
+                        <li> 
+                            <h4>Federico</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul>
+
+                    <ul class="contact">
+                        <li class="avatar">
+                            <i class="fas fa-user"></i>
+                        </li>
+                        <li> 
+                            <h4>Davide</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!-- inserimento messaggio da inviare -->
-            <div class="chat-input">
-                <div class="icon-input before"> <i class="fa-regular fa-face-smile"></i></div>
-                <div>
-                    <input type="text" placeholder="Scrivi un messaggio">
-                </div>
-                <div class="icon-input after"><i class="fas fa-microphone"></i></div>
+            <!-- container delle chat effettuate -->
+            <div class="chat-container">
+                <div class="chat-header">
+                    
+                    <div class="avatar">
+                        
+                    </div>
+                    <div class="chat-info">
+                        <h3>Michele</h3>
+                        <p>Ultimo accesso oggi alle ore 12:00</p>
+                    </div>
+                    <div class="chat-icons-sidebar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
                 
+                    
+                </div>
+                <!-- messaggi inviati e ricevuti -->
+                <div class="chat-messages">
+                    
+                    <div class="message received">
+                        <p>Hai portato a spasso il cane?</p>
+                        <span>15:30</span>
+                    </div>
+                    <div class="message received">
+                        <p>Ricordati di stendere i panni</p>
+                        <span>15:50</span>
+                    </div>
+                    <div class="message sent">
+                        <p>Tutto fatto!</p>
+                        <span>16:15</span>
+                    </div>
+                </div>
+                <!-- inserimento messaggio da inviare -->
+                <div class="chat-input">
+                    <div class="icon-input before"> <i class="fa-regular fa-face-smile"></i></div>
+                    
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    
+                    <div class="icon-input after"><i class="fas fa-microphone"></i></div>
+                    
+                </div>
             </div>
         </div>
-    </div>
-    
-
+    </main>
         <!-- JS/main includes -->
     <script src="./javascript/mainjavascript.js"></script>
 </body>
