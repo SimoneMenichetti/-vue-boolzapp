@@ -23,7 +23,7 @@ body {
     background-color: #eaeaea;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 2px;
 }
 /* sezione profilo utente ed avatar*/
 .profile {
@@ -52,42 +52,84 @@ body {
     gap: 10px;
     position: absolute;
     right: 0;
+    margin-right: 10px;
+    
 }
 
-.profile-icons i:hover {
+i{
+    color: #B1B1B1;
+}
+
+i:hover {
     color: #333;
 }
 
 /* icone Chat */
-.chat-icons{
+.chat-icons-sidebar{
     display: flex;
     gap: 10px;
     position: absolute;
     right: 0;
-    margin-right: 5px;
+    margin-right: 10px;
+    
 }
+
+/* icone chat input */
+    /* icon before */
+.before, .after{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    
+}
+
+.before{
+    padding-left: 30px;
+}
+
+.after{
+    padding-right: 30px;
+}
+
+
+
 
 /* sezione notifiche */
 .notifications {
     margin-bottom: 20px;
+    display: flex;
 }
 
-.notifications p {
-    margin-bottom: 5px;
+.text-notifications{
+   margin-top: 7px;
 }
 
 .contact-list {
     flex-grow: 1;
     overflow-y: auto;
+    background-color: #fafafa;
 }
 
 .contact {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    
 }
 
 .contact:hover {
     background-color: #ddd;
+}
+
+
+/* date contact list */
+.last-date{
+    position: absolute;
+    right: 0;
+    top: 20%;
 }
 
 /* sezione chat inviate e ricevute */
@@ -103,14 +145,16 @@ body {
     display: flex;
     align-items: center;
     padding: 5px;
-    background-color: #f7f7f7;
+    background-color:#EAEAEA;
     border-bottom: 1px solid #ccc;
+    border-left: #B1B1B1 solid 1px;
     position: relative;
 }
 
 .chat-messages {
     flex-grow: 1;
     padding: 20px;
+    width: 100%;
     background-color: #fafafa;
     overflow-y: auto;
 }
@@ -136,12 +180,18 @@ body {
 }
 
 .sent {
-    background-color: #dcf8c6;
+    
+    width: 300px;
+    background-color: #D5F9BA;
     margin-left: auto;
+    padding: 20px;
+    margin-top: 30px;
     text-align: left;
 }
 
 .received {
+    width: 300px;
+    padding: 20px;
     background-color: #fff;
     border: 1px solid #ccc;
     text-align: left;
@@ -150,11 +200,14 @@ body {
 .chat-input {
     padding: 10px;
     border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    background-color: #EAEAEA;
 }
 
 .chat-input input {
-    width: 100%;
+    width: 700px;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 5px;
 }
