@@ -1,4 +1,6 @@
-*{
+
+/* Stile generale */
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -6,40 +8,39 @@
     font-size: 13px;
 }
 
-header{
+/* Stile dell'header */
+header {
     background-color: #009688;
     height: 70px;
-   
 }
 
-main{
+/* Stile del main */
+main {
     background-color: #DBDBD3;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -30px;
-    
 }
 
-
-
-/* container generale app  */
-
+/* Stile del contenitore app */
 #app {
     display: flex;
     width: 80%;
     height: 85%;
 }
-/* sezione Sidebar  */
+
+/* Stile della sidebar */
 .sidebar {
     width: 30%;
     background-color: #eaeaea;
     display: flex;
     flex-direction: column;
-    border-right: #B1B1BB solid 1px; 
+    border-right: #B1B1BB solid 1px;
 }
-/* sezione profilo utente ed avatar*/
+
+/* Stile del profilo utente ed avatar */
 .profile {
     display: flex;
     align-items: center;
@@ -51,7 +52,7 @@ main{
 
 .avatar {
     width: 40px;
-    height:40px;
+    height: 40px;
     background-color: #ccc;
     border-radius: 50%;
     display: flex;
@@ -60,18 +61,16 @@ main{
     font-size: 14px;
     margin-right: 10px;
     object-fit: contain;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .avatar img {
     height: 100%;
-    border-radius: 15px;
+    border-radius: 50%;
     object-fit: cover;
-   
 }
 
-/* gestione icone  */
-    /* icone profilo sidebar */
+/* Stile delle icone di profilo nella sidebar */
 .profile-icons {
     display: flex;
     gap: 10px;
@@ -79,20 +78,14 @@ main{
     right: 0;
     margin-right: 10px;
     color: #B1B1B1;
-    
 }
 
-i{
-    
-    font-size: 15px;
-}
-
-i:hover {
+.profile-icons i:hover {
     color: #333;
 }
 
-/* icone Chat */
-.chat-icons-sidebar{
+/* Stile delle icone di chat nella sidebar */
+.chat-icons-sidebar {
     display: flex;
     gap: 10px;
     position: absolute;
@@ -101,65 +94,49 @@ i:hover {
     color: #B1B1B1;
 }
 
-/* icone chat input */
-    /* icon before */
-.before, .after{
+/* Stile delle icone del messaggio di input */
+.icon-input {
     display: flex;
     align-items: center;
     font-size: 18px;
     color: #6B7376;
-    
 }
 
-.before{
+.icon-input.before {
     padding-left: 15px;
     margin-right: 20px;
 }
 
-.after{
+.icon-input.after {
     padding-right: 15px;
     margin-left: 20px;
 }
 
-.top{
-    margin-right: 2px;
-}
-
-
-
-
-/* sezione notifiche */
+/* Stile delle notifiche */
 .notifications {
     display: flex;
     background-color: #8EDAFC;
     padding: 10px;
 }
 
-
-.text-notifications a{
+.notifications .text-notifications a {
     color: #666;
 }
-/* style icons bell */
 
 .notifications .avatar .fa-solid {
-    color: #8EDAFC ;
+    color: #8EDAFC;
     background-color: #fff;
-
 }
 
-.bell{
-    background: #fffd;
-  }
-
-  /* search bar */
-  .search-chat {
+/* Stile della barra di ricerca */
+.search-chat {
     display: flex;
     align-items: center;
-    background-color:  #fffd;
+    background-color: #fffd;
     padding: 5px;
-    border-bottom:rgba(128, 128, 128, 0.3) solid 1px;
-    
+    border-bottom: rgba(128, 128, 128, 0.3) solid 1px;
 }
+
 .glass-icon {
     margin-right: 10px;
     margin-left: 10px;
@@ -168,8 +145,7 @@ i:hover {
 }
 
 .input-search {
-   width: 100%;
-  
+    width: 100%;
 }
 
 .input-search input {
@@ -178,6 +154,7 @@ i:hover {
     padding: 5px;
 }
 
+/* Stile della lista dei contatti */
 .contact-list {
     flex-grow: 1;
     overflow-y: scroll;
@@ -191,22 +168,23 @@ i:hover {
     list-style: none;
     padding: 10px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    
+    cursor: pointer;
 }
-
-
 
 .contact:hover {
     background-color: #ddd;
 }
 
-.contact p{
+.contact h4 {
+    margin-bottom: 5px;
+}
+
+.contact p {
     color: #aaa;
 }
 
-
-/* date contact list */
-.last-date{
+/* Stile della data nella lista dei contatti */
+.last-date {
     position: absolute;
     right: 0;
     top: 20%;
@@ -215,8 +193,7 @@ i:hover {
     font-size: 10px;
 }
 
-/* sezione chat inviate e ricevute */
-
+/* Stile del contenitore delle chat */
 .chat-container {
     width: 70%;
     background-color: #fff;
@@ -224,26 +201,31 @@ i:hover {
     flex-direction: column;
 }
 
+/* Stile dell'header della chat */
 .chat-header {
     display: flex;
     align-items: center;
     padding: 5px;
-    background-color:#EAEAEA;
+    background-color: #EAEAEA;
     border-bottom: 1px solid #ccc;
     position: relative;
 }
 
+.chat-header .avatar {
+    margin-right: 10px;
+}
+
+.chat-info p {
+    color: #aaa;
+}
+
+/* Stile dei messaggi */
 .chat-messages {
     flex-grow: 1;
     padding: 20px;
-    width: 100%;
     overflow-y: scroll;
     background-image: url('../img/desktop-wallpaper-message-background-whatsapp-message-background.jpg');
     background-size: contain;
-}
-
-.chat-info p{
-    color: #aaa;
 }
 
 .message {
@@ -266,22 +248,18 @@ i:hover {
     right: 10px;
 }
 
-.received{
-    
-    width: 300px;
+.message.received {
     background-color: #D5F9BA;
     margin-left: auto;
-    margin-top: 30px;
-    
 }
 
-.sent {
-    max-width: 200px;
+.message.sent {
     background-color: #fff;
     border: 1px solid #ccc;
-   
+    align-self: flex-end;
 }
 
+/* Stile dell'input della chat */
 .chat-input {
     padding: 10px;
     border-top: 1px solid #ccc;
@@ -290,9 +268,16 @@ i:hover {
     background-color: #EAEAEA;
 }
 
-.chat-input input{
+.chat-input input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+/* Stile dell'elemento attivo nella lista dei contatti */
+.contact.active {
+    background-color: #ddd;
+}
+
+/* Fine del file CSS */

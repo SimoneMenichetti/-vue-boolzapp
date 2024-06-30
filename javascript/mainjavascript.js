@@ -7,6 +7,11 @@
 // Click sul contatto mostra la conversazione del contatto cliccato
 
 
+// Milestone 3
+// Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+
+
 
 
 
@@ -15,6 +20,8 @@ const {createApp}= Vue;
 createApp({
     data() {
         return{
+
+            messageText: '',
 
             contacts: [
                 {
@@ -173,7 +180,7 @@ createApp({
                         },
                         {
                             date: '10/01/2020 15:51:00',
-                            message: 'Ripeto andiamo a mangiare una pizza stasera!.',
+                            message: 'ok hai ragione!',
                             status: 'received'
                         }
                     ],
@@ -186,6 +193,42 @@ createApp({
     methods: {
         setActiveContact(contact) {
             this.activeContact = contact;
+        },
+        sendMessage(text) {
+            // check  testo non sia vuoto
+            if (!text) return; 
+            
+            const newMessage = {
+                date: new Date().toLocaleString(),
+                message: text,
+                status: 'sent'
+            };
+            
+            this.activeContact.messages.push(newMessage);
+    
+            // Dopo 1 secondo, ricevi una risposta automatica
+            setTimeout(() => {
+                this.receiveMessage();
+            }, 1000);
+    
+            // Resetta l'input del messaggio
+            this.messageText = '';
+        },
+        receiveMessage() {
+            const responseMessage = {
+                date: new Date().toLocaleString(),
+                message: "Let's go",
+                status: 'received'
+            };
+            
+            this.activeContact.messages.push(responseMessage);
+        }
+    },
+
+    mounted() {
+        // Imposta il primo contatto come attivo all'avvio della pagina
+        if (this.contacts.length > 0) {
+            this.activeContact = this.contacts[0];
         }
     }
     // montiamo all esecuzione
