@@ -20,15 +20,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        
+    </header>
     <main>
         <div id="app" class="container">
             <!-- inserimento sidebar per nome utente e avatar -->
             <div class="sidebar">
                 <div class="profile">
                     <div class="avatar top">
-                        <img class="" src="./img/Cartoons__Anime_Dragonball_Artboard_1-512.webp" alt="">
+                        <img class="" src="./img/rick Sanchez.jpg" alt="frey">
                     </div>
-                    <h3>Nome Utente</h3>
+                    <h3>Rick Sanchez</h3>
                     <div class="profile-icons">
                         <i class="fa-solid fa-rotate-left"></i>
                         <i class="fa-solid fa-message"></i>
@@ -59,13 +62,36 @@
                 </div>
                 <!-- container della lista contatti -->
                 <div class="contact-list">
-                    <!-- utenti e profili miei ultimi contatti -->
-                    <ul class="contact">
+
+                    <!-- inizializzo ciclo f-for per dinamicizzare i contatti e le chat  -->
+                    <ul class="contact" v-for="contact in contacts" :key="contact.name">
                         <li class="avatar">
-                            <i class="fas fa-user"></i>
+                            <img :src="contact.avatar" :alt="contact.name">
+                        </li>
+                        <li>
+                            <h4>{{ contact.name }}</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul>
+
+                    <!-- <ul class="contact">
+                        <li class="avatar">
+                            <img class="" src="./img/OIP (1).jpg" alt="Trump">
                         </li>
                         <li> 
-                            <h4>Michele</h4>
+                            <h4>Trump</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul> -->
+<!-- 
+                    <ul class="contact">
+                        <li class="avatar">
+                            <img class="" src="./img/io sono giapponese.jpg" alt="sono giapponese">
+                        </li>
+                        <li> 
+                            <h4>sono giapponese</h4>
                             <p>Ultimo messaggio inviato</p>
                             <span class="last-date">12:00</span>
                         </li>
@@ -73,80 +99,58 @@
 
                     <ul class="contact">
                         <li class="avatar">
-                            <i class="fas fa-user"></i>
+                            <img class="" src="./img/bomba anarchica.jpg" alt="bomba anarchica">
                         </li>
                         <li> 
-                            <h4>Fabio</h4>
+                            <h4>Bomba Anarchica</h4>
                             <p>Ultimo messaggio inviato</p>
                             <span class="last-date">12:00</span>
                         </li>
-                    </ul>
+                    </ul> -->
 
+                    <!-- <ul class="contact">
+                        <li class="avatar">
+                            <img class="" src="./img/entra.jpg" alt="entra">
+                        </li>
+                        <li> 
+                            <h4>iL Mac</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul> -->
+
+                    <!-- <ul class="contact">
+                        <li class="avatar">
+                            <img class="" src="./img/salvini.jpg" alt="salvini">
+                        </li>
+                        <li> 
+                            <h4>Salvini</h4>
+                            <p>Ultimo messaggio inviato</p>
+                            <span class="last-date">12:00</span>
+                        </li>
+                    </ul> -->
+                    <!-- 
                     <ul class="contact">
                         <li class="avatar">
-                            <i class="fas fa-user"></i>
+                            <img class="" src="./img/saluta antonio.jpg" alt="saluta antonio">
                         </li>
                         <li> 
-                            <h4>Samuele</h4>
+                            <h4>Saluta Antonio</h4>
                             <p>Ultimo messaggio inviato</p>
                             <span class="last-date">12:00</span>
                         </li>
-                    </ul>
+                    </ul> -->
 
-                    <ul class="contact">
+                    <!-- <ul class="contact">
                         <li class="avatar">
-                            <i class="fas fa-user"></i>
+                            <img class="" src="./img/ibra.jpg" alt="Ibra">
                         </li>
                         <li> 
-                            <h4>Alessandro.B</h4>
+                            <h4>Ibra</h4>
                             <p>Ultimo messaggio inviato</p>
                             <span class="last-date">12:00</span>
                         </li>
-                    </ul>
-
-                    <ul class="contact">
-                        <li class="avatar">
-                            <i class="fas fa-user"></i>
-                        </li>
-                        <li> 
-                            <h4>Alessandro.L</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul>
-
-                    <ul class="contact">
-                        <li class="avatar">
-                            <i class="fas fa-user"></i>
-                        </li>
-                        <li> 
-                            <h4>Claudia</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul>
-
-                    <ul class="contact">
-                        <li class="avatar">
-                            <i class="fas fa-user"></i>
-                        </li>
-                        <li> 
-                            <h4>Federico</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul>
-
-                    <ul class="contact">
-                        <li class="avatar">
-                            <i class="fas fa-user"></i>
-                        </li>
-                        <li> 
-                            <h4>Davide</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
             <!-- container delle chat effettuate -->
@@ -154,10 +158,10 @@
                 <div class="chat-header">
                     
                     <div class="avatar">
-                        
+                        <img class="" src="./img/OIP (1).jpg" alt="Trump">
                     </div>
                     <div class="chat-info">
-                        <h3>Michele</h3>
+                        <h3>Trump</h3>
                         <p>Ultimo accesso oggi alle ore 12:00</p>
                     </div>
                     <div class="chat-icons-sidebar">
