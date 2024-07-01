@@ -109,18 +109,20 @@ main {
 .icon-input {
     display: flex;
     align-items: center;
-    font-size: 18px;
     color: #6B7376;
 }
 
-.icon-input.before {
+.icon-input.before  .fa-face-smile{
     padding-left: 15px;
     margin-right: 20px;
+    font-size: 18px;
 }
 
-.icon-input.after {
+.icon-input.after .fa-microphone{
     padding-right: 15px;
     margin-left: 20px;
+    font-size: 18px;
+
 }
 
 /* sezione regole  notifiche */
