@@ -29,7 +29,7 @@ main {
     top: 10%;
     left: 9%;
     margin-left: 2;
-    margin-top: 110px;
+    margin-top: 130px;
     z-index: 2;
 }
 
@@ -43,9 +43,11 @@ main {
 
 /* Stile della sidebar */
 .sidebar {
-    background-color: #eaeaea;
+    width: 30%;
+    height: 90%;
     display: flex;
     flex-direction: column;
+    background-color: #eaeaea;
     border-right: #B1B1BB solid 1px;
 }
 
@@ -205,6 +207,7 @@ main {
 /* regole container chat */
 .chat-container {
     width: 70%;
+    height: 90%;
     background-color: #fff;
     display: flex;
     flex-direction: column;
