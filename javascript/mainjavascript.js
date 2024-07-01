@@ -17,6 +17,8 @@
 
 const {createApp}= Vue;
 
+const { DateTime } = luxon;
+
 createApp({
     data() {
         return{
@@ -218,7 +220,7 @@ createApp({
             if (!text) return; 
             
             const newMessage = {
-                date: new Date().toLocaleString('it-IT'),
+                date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                 message: text,
                 status: 'sent'
             };
@@ -237,7 +239,7 @@ createApp({
         },
         receiveMessage() {
             const responseMessage = {
-                date: new Date().toLocaleString('it-IT'),
+                date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                 message: "Let's go",
                 status: 'received'
             };
