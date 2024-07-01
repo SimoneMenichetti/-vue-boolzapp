@@ -1,5 +1,5 @@
 
-/* Stile generale */
+/*regole stile generali */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -8,13 +8,13 @@
     font-size: 13px;
 }
 
-/* Stile dell'header */
+/* regole sezione'header */
 header {
     background-color: #009688;
     height: 70px;
 }
 
-/* Stile del main */
+/* regole sezione main */
 main {
     background-color: #DBDBD3;
     height: 100vh;
@@ -24,7 +24,7 @@ main {
     margin-top: -30px;
 }
 
-/* Stile del contenitore app */
+/* regole contenitore app */
 #app {
     display: flex;
     width: 80%;
@@ -70,7 +70,7 @@ main {
     object-fit: cover;
 }
 
-/* Stile delle icone di profilo nella sidebar */
+/* Stile e regole delle icone di profilo nella sidebar */
 .profile-icons {
     display: flex;
     gap: 10px;
@@ -84,7 +84,7 @@ main {
     color: #333;
 }
 
-/* Stile delle icone di chat nella sidebar */
+/* Stile e regole delle icone di chat nella sidebar */
 .chat-icons-sidebar {
     display: flex;
     gap: 10px;
@@ -94,7 +94,7 @@ main {
     color: #B1B1B1;
 }
 
-/* Stile delle icone del messaggio di input */
+/* Stile  e regole delle icone del messaggio di input */
 .icon-input {
     display: flex;
     align-items: center;
@@ -112,7 +112,7 @@ main {
     margin-left: 20px;
 }
 
-/* Stile delle notifiche */
+/* sezione regole  notifiche */
 .notifications {
     display: flex;
     background-color: #8EDAFC;
@@ -128,7 +128,7 @@ main {
     background-color: #fff;
 }
 
-/* Stile della barra di ricerca */
+/* placeholder */
 .search-chat {
     display: flex;
     align-items: center;
@@ -154,7 +154,7 @@ main {
     padding: 5px;
 }
 
-/* Stile della lista dei contatti */
+/* regole contact list */
 .contact-list {
     flex-grow: 1;
     overflow-y: scroll;
@@ -193,7 +193,7 @@ main {
     font-size: 10px;
 }
 
-/* Stile del contenitore delle chat */
+/* regole container chat */
 .chat-container {
     width: 70%;
     background-color: #fff;
@@ -219,7 +219,7 @@ main {
     color: #aaa;
 }
 
-/* Stile dei messaggi */
+/* regole messaggi  */
 .chat-messages {
     flex-grow: 1;
     padding: 20px;
@@ -280,4 +280,4 @@ main {
     background-color: #ddd;
 }
 
-/* Fine del file CSS */
+

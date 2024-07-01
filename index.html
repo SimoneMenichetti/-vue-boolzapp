@@ -56,112 +56,36 @@
                      <div class="glass-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
+
+                    <!-- Utilizziamo v-model sull'input di ricerca per collegarlo all'array searchContacts, in modo che ogni modifica all'input lo aggiorni in automatico. -->
                     <div class="input-search">
-                        <input  type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input  type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContacts">
                     </div>
                 </div>
                 <!-- container della lista contatti -->
                 <div class="contact-list">
-
-                    <!-- inizializzo ciclo f-for per dinamicizzare i contatti e le chat  -->
-                    <ul class="contact" v-for="contact in contacts" :key="contact.name">
+                    <!-- inizializzo ciclo f-for per dinamicizzare i contatti e le chat  ed inseriamo filterinContacts per i contatti ricercati in modo da iterare all'interno dell'array searchContacts-->
+                    <ul class="contact" v-for="contact in filterinContacts" :key="contact.name"
+                        @click="setActiveContact(contact)" :class="{ active: contact === activeContact }">
                         <li class="avatar">
                             <img :src="contact.avatar" :alt="contact.name">
                         </li>
                         <li>
                             <h4>{{ contact.name }}</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
+                            <p>{{ contact.messages[contact.messages.length - 1].message }}</p>
+                            <span class="last-date">{{ contact.messages[contact.messages.length - 1].date.slice(11, 16) }}</span>
                         </li>
                     </ul>
-
-                    <!-- <ul class="contact">
-                        <li class="avatar">
-                            <img class="" src="./img/OIP (1).jpg" alt="Trump">
-                        </li>
-                        <li> 
-                            <h4>Trump</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul> -->
-<!-- 
-                    <ul class="contact">
-                        <li class="avatar">
-                            <img class="" src="./img/io sono giapponese.jpg" alt="sono giapponese">
-                        </li>
-                        <li> 
-                            <h4>sono giapponese</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul>
-
-                    <ul class="contact">
-                        <li class="avatar">
-                            <img class="" src="./img/bomba anarchica.jpg" alt="bomba anarchica">
-                        </li>
-                        <li> 
-                            <h4>Bomba Anarchica</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul> -->
-
-                    <!-- <ul class="contact">
-                        <li class="avatar">
-                            <img class="" src="./img/entra.jpg" alt="entra">
-                        </li>
-                        <li> 
-                            <h4>iL Mac</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul> -->
-
-                    <!-- <ul class="contact">
-                        <li class="avatar">
-                            <img class="" src="./img/salvini.jpg" alt="salvini">
-                        </li>
-                        <li> 
-                            <h4>Salvini</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul> -->
-                    <!-- 
-                    <ul class="contact">
-                        <li class="avatar">
-                            <img class="" src="./img/saluta antonio.jpg" alt="saluta antonio">
-                        </li>
-                        <li> 
-                            <h4>Saluta Antonio</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul> -->
-
-                    <!-- <ul class="contact">
-                        <li class="avatar">
-                            <img class="" src="./img/ibra.jpg" alt="Ibra">
-                        </li>
-                        <li> 
-                            <h4>Ibra</h4>
-                            <p>Ultimo messaggio inviato</p>
-                            <span class="last-date">12:00</span>
-                        </li>
-                    </ul> -->
                 </div>
             </div>
             <!-- container delle chat effettuate -->
             <div class="chat-container">
-                <div class="chat-header">
-                    
+                <div class="chat-header" v-if="activeContact">
                     <div class="avatar">
-                        <img class="" src="./img/OIP (1).jpg" alt="Trump">
+                        <img :src="activeContact.avatar" :alt="activeContact.name">
                     </div>
                     <div class="chat-info">
-                        <h3>Trump</h3>
+                        <h3>{{ activeContact.name }}</h3>
                         <p>Ultimo accesso oggi alle ore 12:00</p>
                     </div>
                     <div class="chat-icons-sidebar">
@@ -169,33 +93,27 @@
                         <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
-                
-                    
                 </div>
+                
                 <!-- messaggi inviati e ricevuti -->
                 <div class="chat-messages">
-                    
-                    <div class="message received">
-                        <p>Hai portato a spasso il cane?</p>
-                        <span>15:30</span>
-                    </div>
-                    <div class="message received">
-                        <p>Ricordati di stendere i panni</p>
-                        <span>15:50</span>
-                    </div>
-                    <div class="message sent">
-                        <p>Tutto fatto!</p>
-                        <span>16:15</span>
+                    <div v-if="activeContact">
+                        <div v-for="message in activeContact.messages" :key="message.date"
+                             :class="['message', message.status]">
+                            <p>{{ message.message }}</p>
+                            <span>{{ message.date.slice(11, 16) }}</span>
+                        </div>
                     </div>
                 </div>
                 <!-- inserimento messaggio da inviare -->
                 <div class="chat-input">
-                    <div class="icon-input before"> <i class="fa-regular fa-face-smile"></i></div>
-                    
-                    <input type="text" placeholder="Scrivi un messaggio">
-                    
-                    <div class="icon-input after"><i class="fas fa-microphone"></i></div>
-                    
+                    <div class="icon-input before">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sendMessage(messageText)">
+                    <div class="icon-input after">
+                        <i class="fas fa-microphone"></i>
+                    </div>
                 </div>
             </div>
         </div>

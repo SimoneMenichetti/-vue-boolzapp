@@ -22,6 +22,8 @@ createApp({
         return{
 
             messageText: '',
+            // inseriamo searchContacts per memorizzare l'inserimento di ricerca dell'utente
+             searchContacts: '',
 
             contacts: [
                 {
@@ -188,6 +190,19 @@ createApp({
                 
             ],
             activeContact: null
+        }
+    },
+// utilizziamo la proprietà computed "filterincontacts" per restituire un array di contatti filtrati nel searchContacts
+    computed: {
+        filterinContacts() {
+            // se searchContact è vuoto ci ritorna tutti i contatti , altrimenti filtra i contatti attraverso il nome
+            if (!this.searchContacts) {
+                return this.contacts;
+            }
+            const searchContactslower = this.searchContacts.toLowerCase();
+            return this.contacts.filter(contact =>
+                contact.name.toLowerCase().includes(searchContactslower)
+            );
         }
     },
     methods: {
