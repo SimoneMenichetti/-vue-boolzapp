@@ -218,7 +218,7 @@ createApp({
             if (!text) return; 
             
             const newMessage = {
-                date: new Date().toLocaleString(),
+                date: new Date().toLocaleString('it-IT'),
                 message: text,
                 status: 'sent'
             };
@@ -237,7 +237,7 @@ createApp({
         },
         receiveMessage() {
             const responseMessage = {
-                date: new Date().toLocaleString(),
+                date: new Date().toLocaleString('it-IT'),
                 message: "Let's go",
                 status: 'received'
             };
@@ -248,11 +248,11 @@ createApp({
         }
     },
 
-    mounted() {
-        // Imposta il primo contatto come attivo all'avvio della pagina
-        if (this.contacts.length > 0) {
-            this.activeContact = this.contacts[0];
+        mounted() {
+            // Imposta il primo contatto come attivo all'avvio della pagina
+            if (this.contacts.length > 0) {
+                this.activeContact = this.contacts[0];
+            }
         }
-    }
     // montiamo all esecuzione
 }).mount('#app');
