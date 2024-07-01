@@ -18,17 +18,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- luxon library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.1/luxon.min.js"></script>
 </head>
 <body>
     <header></header>
     <main>
-      
         <div id="app" class="container">
-            <!-- inserimento sidebar per nome utente e avatar -->
+            <!-- Inserimento sidebar per nome utente e avatar -->
             <div class="sidebar">
                 <div class="profile">
                     <div class="avatar top">
-                        <img class="" src="./img/rick Sanchez.jpg" alt="frey">
+                        <img src="./img/rick Sanchez.jpg" alt="Rick Sanchez">
                     </div>
                     <h3>Rick Sanchez</h3>
                     <div class="profile-icons">
@@ -36,9 +37,8 @@
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
-                    
                 </div>
-                <!-- notifiche di chat  -->
+                <!-- Notifiche di chat -->
                 <div class="notifications">
                     <div class="avatar bell">
                         <i class="fa-solid fa-bell-slash"></i>
@@ -47,23 +47,18 @@
                         <p>Ricevi notifiche di nuovi messaggi</p>
                         <a href="#">Attiva notifiche desktop</a>
                     </div>
-                    
                 </div>
-
+                <!-- Placeholder per la ricerca utente inizio chat -->
                 <div class="search-chat">
-                    <!-- placeholder per la ricerca utente inizio chat -->
-                     <div class="glass-icon">
+                    <div class="glass-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
-
-                    <!-- Utilizziamo v-model sull'input di ricerca per collegarlo all'array searchContacts, in modo che ogni modifica all'input lo aggiorni in automatico. -->
                     <div class="input-search">
-                        <input  type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContacts">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContacts">
                     </div>
                 </div>
-                <!-- container della lista contatti -->
+                <!-- Container della lista contatti -->
                 <div class="contact-list">
-                    <!-- inizializzo ciclo f-for per dinamicizzare i contatti e le chat  ed inseriamo filterinContacts per i contatti ricercati in modo da iterare all'interno dell'array searchContacts-->
                     <ul class="contact" v-for="contact in filterinContacts" :key="contact.name"
                         @click="setActiveContact(contact)" :class="{ active: contact === activeContact }">
                         <li class="avatar">
@@ -77,7 +72,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- container delle chat effettuate -->
+            <!-- Container delle chat effettuate -->
             <div class="chat-container">
                 <div class="chat-header" v-if="activeContact">
                     <div class="avatar">
@@ -93,18 +88,24 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
-                
-                <!-- messaggi inviati e ricevuti -->
+                <!-- Messaggi inviati e ricevuti -->
                 <div class="chat-messages">
                     <div v-if="activeContact">
-                        <div v-for="message in activeContact.messages" :key="message.date"
-                             :class="['message', message.status]">
+                        <div v-for="message in activeContact.messages" :key="message.date" :class="['message', message.status]">
                             <p>{{ message.message }}</p>
                             <span>{{ message.date.slice(11, 16) }}</span>
+                            <div class="message-menu" v-if="message.showOptions">
+                                <ul>
+                                    <li @click="deleteMessage(activeContact, message)">Delete</li>
+                                </ul>
+                            </div>
+                            <div class="togglemenu">
+                                <i class="fa-solid fa-chevron-down" @click="toggleMessageOptions(message)"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- inserimento messaggio da inviare -->
+                <!-- Inserimento messaggio da inviare -->
                 <div class="chat-input">
                     <div class="icon-input before">
                         <i class="fa-regular fa-face-smile"></i>

@@ -15,16 +15,16 @@
 
 
 
-const {createApp}= Vue;
+const { createApp } = Vue;
+const { DateTime } = luxon;
 
 createApp({
     data() {
-        return{
-
+        return {
+             // Memorizza il testo del messaggio in input
             messageText: '',
-            // inseriamo searchContacts per memorizzare l'inserimento di ricerca dell'utente
-             searchContacts: '',
-
+            // Memorizza l'inserimento di ricerca dell'utente
+            searchContacts: '', 
             contacts: [
                 {
                     name: 'Obi-wan',
@@ -187,20 +187,19 @@ createApp({
                         }
                     ],
                 }
-                
             ],
-            activeContact: null
+            activeContact: null // Contatto attivo corrente
         }
     },
-// utilizziamo la proprietà computed "filterincontacts" per restituire un array di contatti filtrati nel searchContacts
+    // Utilizziamo la proprietà computed "filterinContacts" per restituire un array di contatti filtrati nel searchContacts
     computed: {
         filterinContacts() {
-            // se searchContact è vuoto ci ritorna tutti i contatti , altrimenti filtra i contatti attraverso il nome
+            // Se searchContact è vuoto ci ritorna tutti i contatti, altrimenti filtra i contatti attraverso il nome
             if (!this.searchContacts) {
                 return this.contacts;
             }
             const searchContactslower = this.searchContacts.toLowerCase();
-            // verifica salvataggio inserimento user dei contatti filtrati
+            // Verifica salvataggio inserimento user dei contatti filtrati
             console.log(`contatti filtrati dalla ricerca: ${this.searchContacts}`);
             return this.contacts.filter(contact =>
                 contact.name.toLowerCase().includes(searchContactslower)
@@ -210,49 +209,75 @@ createApp({
     methods: {
         setActiveContact(contact) {
             this.activeContact = contact;
-            // verifica contatto attivo 
+            // Verifica contatto attivo 
             console.log(`contatto attivo: ${contact.name}`);
         },
         sendMessage(text) {
-            // check  testo non sia vuoto
-            if (!text) return; 
+            // Controlla che il testo non sia vuoto
+            if (!text) return;
             
             const newMessage = {
-                date: new Date().toLocaleString('it-IT'),
+                date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                 message: text,
-                status: 'sent'
+                status: 'sent',
+                showOptions: false
             };
             
             this.activeContact.messages.push(newMessage);
             console.log(`Messaggio inviato: "${text}" to ${this.activeContact.name}`);
 
-    
             // Dopo 1 secondo, ricevi una risposta automatica
             setTimeout(() => {
                 this.receiveMessage();
             }, 1000);
-    
+
             // Resetta l'input del messaggio
             this.messageText = '';
         },
         receiveMessage() {
             const responseMessage = {
-                date: new Date().toLocaleString('it-IT'),
+                date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                 message: "Let's go",
-                status: 'received'
+                status: 'received',
+                showOptions: false
             };
             
             this.activeContact.messages.push(responseMessage);
             // Verifica Messaggio ricevuto 
             console.log(`Messaggio ricevuto: "Let's go" from ${this.activeContact.name}`);
-        }
-    },
+        },
 
-        mounted() {
-            // Imposta il primo contatto come attivo all'avvio della pagina
-            if (this.contacts.length > 0) {
-                this.activeContact = this.contacts[0];
+        // function per delete messaggi
+        deleteMessage(contact, message) {
+            const index = contact.messages.indexOf(message);
+            if (index > -1) {
+                contact.messages.splice(index, 1);
+                console.log(`Messaggio eliminato: "${message.message}"`);
+            }
+            // Chiudi il menu a tendina dopo aver eliminato il messaggio
+            message.showOptions = false;
+        },
+        
+        // menu toggle per apertura finestra delete messaggi
+        toggleMessageOptions(message) {
+            // Se il messaggio è già attivo, lo chiudiamo
+            if (message.showOptions) {
+                message.showOptions = false;
+            } else {
+                // Chiudiamo eventuali altri menu aperti
+                this.activeContact.messages.forEach(msg => {
+                    msg.showOptions = false;
+                });
+                // Apriamo il menu per il messaggio corrente
+                message.showOptions = true;
             }
         }
-    // montiamo all esecuzione
+    },
+    
+    mounted() {
+        // Imposta il primo contatto come attivo all'avvio della pagina
+        if (this.contacts.length > 0) {
+            this.activeContact = this.contacts[0];
+        }
+    }
 }).mount('#app');
