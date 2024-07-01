@@ -6,6 +6,15 @@
     font-size: 13px;
 }
 
+i{
+    cursor: pointer;
+    font-size: 16px;
+}
+
+i:hover {
+    color: #333;
+}
+
 /* Regole sezione header */
 header {
     position: relative;
@@ -87,9 +96,7 @@ main {
     color: #B1B1B1;
 }
 
-.profile-icons i:hover {
-    color: #333;
-}
+
 
 /* Stile e regole delle icone di chat nella sidebar */
 .chat-icons-sidebar {
@@ -288,8 +295,7 @@ main {
 
 .message-menu ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    
 }
 
 .message-menu li {
@@ -304,9 +310,8 @@ main {
 .togglemenu{
     text-align: right;
     margin-bottom: 10px;
+    color: #ccc;
 }
-
-
 
 /* Stile dell'input della chat */
 .chat-input {
