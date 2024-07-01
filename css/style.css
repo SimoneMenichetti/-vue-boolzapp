@@ -12,6 +12,7 @@
 header {
     background-color: #009688;
     height: 70px;
+    z-index: -1;
 }
 
 /* regole sezione main */
@@ -22,6 +23,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-top: -30px;
+    z-index: 1;
 }
 
 /* regole contenitore app */

@@ -200,6 +200,8 @@ createApp({
                 return this.contacts;
             }
             const searchContactslower = this.searchContacts.toLowerCase();
+            // verifica salvataggio inserimento user dei contatti filtrati
+            console.log(`contatti filtrati dalla ricerca: ${this.searchContacts}`);
             return this.contacts.filter(contact =>
                 contact.name.toLowerCase().includes(searchContactslower)
             );
@@ -208,6 +210,8 @@ createApp({
     methods: {
         setActiveContact(contact) {
             this.activeContact = contact;
+            // verifica contatto attivo 
+            console.log(`contatto attivo: ${contact.name}`);
         },
         sendMessage(text) {
             // check  testo non sia vuoto
@@ -220,6 +224,8 @@ createApp({
             };
             
             this.activeContact.messages.push(newMessage);
+            console.log(`Messaggio inviato: "${text}" to ${this.activeContact.name}`);
+
     
             // Dopo 1 secondo, ricevi una risposta automatica
             setTimeout(() => {
@@ -237,6 +243,8 @@ createApp({
             };
             
             this.activeContact.messages.push(responseMessage);
+            // Verifica Messaggio ricevuto 
+            console.log(`Messaggio ricevuto: "Let's go" from ${this.activeContact.name}`);
         }
     },
 
