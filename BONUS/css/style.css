@@ -1,0 +1,300 @@
+
+/*regole stile generali */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    font-size: 13px;
+}
+
+/* regole sezione'header */
+header {
+    position: relative;
+    background-color: #009688;
+    height: 150px;
+    padding: 20px;
+    z-index: 1;
+}
+
+/* regole sezione main */
+main {
+   
+    position: absolute;
+    width: 80%;
+    max-height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10%;
+    left: 9%;
+    margin-left: 2;
+    margin-top: 130px;
+    z-index: 2;
+}
+
+
+/* regole contenitore app */
+#app{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+
+   
+    
+}
+
+/* Stile della sidebar */
+.sidebar {
+    width: 30%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: #eaeaea;
+    border-right: #B1B1BB solid 1px;
+}
+
+/* Stile del profilo utente ed avatar */
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    position: relative;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-right: 10px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.avatar img {
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Stile e regole delle icone di profilo nella sidebar */
+.profile-icons {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    color: #B1B1B1;
+}
+
+.profile-icons i:hover {
+    color: #333;
+}
+
+/* Stile e regole delle icone di chat nella sidebar */
+.chat-icons-sidebar {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    color: #B1B1B1;
+}
+
+/* Stile  e regole delle icone del messaggio di input */
+.icon-input {
+    display: flex;
+    align-items: center;
+    color: #6B7376;
+}
+
+.icon-input.before  .fa-face-smile{
+    padding-left: 15px;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+.icon-input.after .fa-microphone{
+    padding-right: 15px;
+    margin-left: 20px;
+    font-size: 18px;
+
+}
+
+/* sezione regole  notifiche */
+.notifications {
+    display: flex;
+    background-color: #8EDAFC;
+    padding: 10px;
+}
+
+.notifications .text-notifications a {
+    color: #666;
+}
+
+.notifications .avatar .fa-solid {
+    color: #8EDAFC;
+    background-color: #fff;
+}
+
+/* placeholder */
+.search-chat {
+    display: flex;
+    align-items: center;
+    background-color: #fffd;
+    padding: 5px;
+    border-bottom: rgba(128, 128, 128, 0.3) solid 1px;
+}
+
+.glass-icon {
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.input-search {
+    width: 100%;
+}
+
+.input-search input {
+    width: 100%;
+    border: none;
+    padding: 5px;
+}
+
+/* regole contact list */
+.contact-list {
+    flex-grow: 1;
+    overflow-y: scroll;
+    background-color: #fafafa;
+}
+
+.contact {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+    cursor: pointer;
+}
+
+.contact:hover {
+    background-color: #ddd;
+}
+
+.contact h4 {
+    margin-bottom: 5px;
+}
+
+.contact p {
+    color: #aaa;
+}
+
+/* Stile della data nella lista dei contatti */
+.last-date {
+    position: absolute;
+    right: 0;
+    top: 20%;
+    margin-right: 3px;
+    color: #aaa;
+    font-size: 10px;
+}
+
+/* regole container chat */
+.chat-container {
+    width: 70%;
+    height: 90%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stile dell'header della chat */
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #EAEAEA;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.chat-header .avatar {
+    margin-right: 10px;
+}
+
+.chat-info p {
+    color: #aaa;
+}
+
+/* regole messaggi  */
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: scroll;
+    background-image: url('../img/desktop-wallpaper-message-background-whatsapp-message-background.jpg');
+    background-size: contain;
+}
+
+.message {
+    margin-bottom: 20px;
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.message p {
+    margin-bottom: 5px;
+}
+
+.message span {
+    font-size: 10px;
+    color: #aaa;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
+.message.received {
+    background-color: #D5F9BA;
+    margin-left: auto;
+}
+
+.message.sent {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    align-self: flex-end;
+}
+
+/* Stile dell'input della chat */
+.chat-input {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    background-color: #EAEAEA;
+}
+
+.chat-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Stile dell'elemento attivo nella lista dei contatti */
+.contact.active {
+    background-color: #ddd;
+}
+
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css -->
+     <link rel="stylesheet" href="./css/style.css">
+    <!-- vues 3.0 -->
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- googlefont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header></header>
+    <main>
+      
+        <div id="app" class="container">
+            <!-- inserimento sidebar per nome utente e avatar -->
+            <div class="sidebar">
+                <div class="profile">
+                    <div class="avatar top">
+                        <img class="" src="./img/rick Sanchez.jpg" alt="frey">
+                    </div>
+                    <h3>Rick Sanchez</h3>
+                    <div class="profile-icons">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    
+                </div>
+                <!-- notifiche di chat  -->
+                <div class="notifications">
+                    <div class="avatar bell">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="text-notifications">
+                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>
+                    
+                </div>
+
+                <div class="search-chat">
+                    <!-- placeholder per la ricerca utente inizio chat -->
+                     <div class="glass-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+                    <!-- Utilizziamo v-model sull'input di ricerca per collegarlo all'array searchContacts, in modo che ogni modifica all'input lo aggiorni in automatico. -->
+                    <div class="input-search">
+                        <input  type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContacts">
+                    </div>
+                </div>
+                <!-- container della lista contatti -->
+                <div class="contact-list">
+                    <!-- inizializzo ciclo f-for per dinamicizzare i contatti e le chat  ed inseriamo filterinContacts per i contatti ricercati in modo da iterare all'interno dell'array searchContacts-->
+                    <ul class="contact" v-for="contact in filterinContacts" :key="contact.name"
+                        @click="setActiveContact(contact)" :class="{ active: contact === activeContact }">
+                        <li class="avatar">
+                            <img :src="contact.avatar" :alt="contact.name">
+                        </li>
+                        <li>
+                            <h4>{{ contact.name }}</h4>
+                            <p>{{ contact.messages[contact.messages.length - 1].message }}</p>
+                            <span class="last-date">{{ contact.messages[contact.messages.length - 1].date.slice(11, 16) }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- container delle chat effettuate -->
+            <div class="chat-container">
+                <div class="chat-header" v-if="activeContact">
+                    <div class="avatar">
+                        <img :src="activeContact.avatar" :alt="activeContact.name">
+                    </div>
+                    <div class="chat-info">
+                        <h3>{{ activeContact.name }}</h3>
+                        <p>Ultimo accesso oggi alle ore 12:00</p>
+                    </div>
+                    <div class="chat-icons-sidebar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                
+                <!-- messaggi inviati e ricevuti -->
+                <div class="chat-messages">
+                    <div v-if="activeContact">
+                        <div v-for="message in activeContact.messages" :key="message.date"
+                             :class="['message', message.status]">
+                            <p>{{ message.message }}</p>
+                            <span>{{ message.date.slice(11, 16) }}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- inserimento messaggio da inviare -->
+                <div class="chat-input">
+                    <div class="icon-input before">
+                        <i class="fa-regular fa-face-smile"></i>
+                    </div>
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sendMessage(messageText)">
+                    <div class="icon-input after">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <!-- JS/main includes -->
+    <script src="./javascript/mainjavascript.js"></script>
+</body>
+</html>
