@@ -8,6 +8,15 @@
     font-size: 13px;
 }
 
+i{
+    cursor: pointer;
+    font-size: 16px;
+}
+
+i:hover {
+    color: #333;
+}
+
 /* regole sezione'header */
 header {
     position: relative;
@@ -87,21 +96,17 @@ main {
 /* Stile e regole delle icone di profilo nella sidebar */
 .profile-icons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     position: absolute;
     right: 0;
     margin-right: 10px;
     color: #B1B1B1;
 }
 
-.profile-icons i:hover {
-    color: #333;
-}
-
 /* Stile e regole delle icone di chat nella sidebar */
 .chat-icons-sidebar {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     position: absolute;
     right: 0;
     margin-right: 10px;
@@ -119,12 +124,14 @@ main {
     padding-left: 15px;
     margin-right: 20px;
     font-size: 18px;
+   
 }
 
 .icon-input.after .fa-microphone{
     padding-right: 15px;
     margin-left: 20px;
     font-size: 18px;
+    
 
 }
 
@@ -157,7 +164,7 @@ main {
     margin-right: 10px;
     margin-left: 10px;
     color: #aaa;
-    font-size: 12px;
+    
 }
 
 .input-search {
