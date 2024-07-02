@@ -29,7 +29,7 @@
             <h1>Benvenuto in Boolzap!</h1>
         </div>
 
-        <div id="app" class="container"v-show="!showSplash">
+        <div id="app" class="container" v-show="!showSplash">
             <!-- Inserimento sidebar per nome utente e avatar -->
             <div class="sidebar">
                 <div class="profile">
@@ -125,6 +125,7 @@
                                     <li @click="deleteMessage(activeContact, message)">Delete</li>
                                 </ul>
                             </div>
+                            <!-- menu a scoparsa delete conversazione -->
                             <div class="togglemenu">
                                 <i id="icon-menu" class="fa-solid fa-chevron-down" @click="toggleMessageOptions(message)"></i>
                             </div>

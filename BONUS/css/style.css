@@ -6,10 +6,7 @@
     font-size: 13px;
 }
 
-
-
 /* general */
-
 i{
     cursor: pointer;
     font-size: 16px;
@@ -38,7 +35,6 @@ main {
     align-items: center;
     top: 10%;
     left: 9%;
-    margin-left: 2;
     margin-top: 130px;
     z-index: 2;
 }
@@ -100,8 +96,6 @@ main {
     color: #B1B1B1;
 }
 
-
-
 /* Stile e regole delle icone di chat nella sidebar */
 .chat-icons-sidebar {
     display: flex;
@@ -113,7 +107,6 @@ main {
 }
 
 /* menu toggle chat icons */
-
 .dropdown-menu {
     position: absolute;
     right: 0;
@@ -268,13 +261,11 @@ main {
     color: #009688;
 }
 
-
-
 /* Regole messaggi */
 .chat-messages {
     flex-grow: 1;
     padding: 20px;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-image: url('../img/desktop-wallpaper-message-background-whatsapp-message-background.jpg');
     background-size: contain;
 }
@@ -339,8 +330,8 @@ main {
 .message-menu li:hover {
     background-color: #f2f2f2;
 }
-/* togglemenu cancellazione messaggio */
 
+/* togglemenu cancellazione messaggio */
 .togglemenu{
     text-align: right;
     margin-bottom: 10px;
@@ -373,7 +364,6 @@ body.dark-mode {
     background-color:#333;
     color: #eaeaea;
 }
-
 
 body.dark-mode .message{
     color:#121212;
@@ -457,16 +447,13 @@ body.dark-mode .message-menu li{
     align-items: center;
     z-index: 1000;
     transition: opacity 0.5s ease;
-   
 }
 
 .splash h1{
     color: #009688;
-    font-size: large;
     font-size: 20px;
    
 }
-
 
 .splash-hidden {
     opacity: 0;
