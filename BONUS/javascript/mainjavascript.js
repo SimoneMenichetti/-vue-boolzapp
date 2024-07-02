@@ -27,6 +27,9 @@ createApp({
             searchContacts: '', 
             // darkmode per memorizzare nel data la modalità scelta
             DarkMode: false,
+            // splash 
+            showSplash: true,
+
             contacts: [
                 {
                     name: 'Obi-wan',
@@ -231,6 +234,7 @@ createApp({
             // Dopo 1 secondo, ricevi una risposta automatica
             setTimeout(() => {
                 this.receiveMessage();
+             
             }, 1000);
 
             // Resetta l'input del messaggio
@@ -274,7 +278,7 @@ createApp({
                 message.showOptions = true;
             }
         },
-
+        // option darkmode per cambio modalità
         toggleDarkMode() {
             this.DarkMode = !this.DarkMode;
             if (this.DarkMode) {
@@ -285,7 +289,9 @@ createApp({
                 document.body.classList.remove('dark-mode');
             }
         }
+        
     },
+    
     
     mounted() {
         // Imposta il primo contatto come attivo all'avvio della pagina
@@ -294,5 +300,11 @@ createApp({
         }
 
         document.body.classList.add('light-mode');
-    }
+
+        // funzione per inizializzare lo splash al montaggio della pagina
+        setTimeout(() => {
+            this.showSplash = false;
+            document.getElementById('splash').classList.add('splash-hidden');
+        }, 2000);
+    },
 }).mount('#app');

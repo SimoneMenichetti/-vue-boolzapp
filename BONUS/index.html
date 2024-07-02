@@ -24,7 +24,12 @@
 <body>
     <header></header>
     <main>
-        <div id="app" class="container">
+        <!-- inserimento splash -->
+        <div id="splash" v-show="showSplash" class="splash">
+            <h1>Benvenuto in Boolzap!</h1>
+        </div>
+
+        <div id="app" class="container"v-show="!showSplash">
             <!-- Inserimento sidebar per nome utente e avatar -->
             <div class="sidebar">
                 <div class="profile">
