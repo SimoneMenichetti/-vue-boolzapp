@@ -6,6 +6,10 @@
     font-size: 13px;
 }
 
+
+
+/* general */
+
 i{
     cursor: pointer;
     font-size: 16px;
@@ -332,4 +336,61 @@ main {
 /* Stile dell'elemento attivo nella lista dei contatti */
 .contact.active {
     background-color: #ddd;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #eaeaea;
+}
+
+
+body.dark-mode .message{
+    color:#121212
+}
+
+body.dark-mode .chat-header{
+background-color: #121212;
+}
+
+body.dark-mode .notifications{
+    background-color: #121212;
+}
+
+body.dark-mode .sidebar {
+    background-color: #333;
+}
+
+body.dark-mode .search-chat{
+    background-color: #121212;
+}
+
+body.dark-mode .chat-container {
+    background-color: #000;
+}
+
+body.dark-mode .contact-list {
+    background-color: #000;
+}
+
+body.dark-mode .chat-input {
+    background-color: #000;
+    border: 1px solid #555;
+}
+
+body.dark-mode i:hover{
+color: #009688;
+}
+
+body.dark-mode .notifications .avatar .fa-solid{
+    background-color: #009688;
+    color: black;
+}
+
+body.dark-mode .contact:hover{
+    background-color: #009688;
+}
+
+body.dark-mode .contact.active{
+    background-color: #009688;
 }

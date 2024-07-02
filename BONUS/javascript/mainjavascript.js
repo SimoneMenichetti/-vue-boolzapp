@@ -25,6 +25,8 @@ createApp({
             messageText: '',
             // Memorizza l'inserimento di ricerca dell'utente
             searchContacts: '', 
+            // darkmode per memorizzare nel data la modalità scelta
+            DarkMode: false,
             contacts: [
                 {
                     name: 'Obi-wan',
@@ -271,6 +273,17 @@ createApp({
                 // Apriamo il menu per il messaggio corrente
                 message.showOptions = true;
             }
+        },
+
+        toggleDarkMode() {
+            this.DarkMode = !this.DarkMode;
+            if (this.DarkMode) {
+                document.body.classList.add('dark-mode');
+                document.body.classList.remove('light-mode');
+            } else {
+                document.body.classList.add('light-mode');
+                document.body.classList.remove('dark-mode');
+            }
         }
     },
     
@@ -279,5 +292,7 @@ createApp({
         if (this.contacts.length > 0) {
             this.activeContact = this.contacts[0];
         }
+
+        document.body.classList.add('light-mode');
     }
 }).mount('#app');
