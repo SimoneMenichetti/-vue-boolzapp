@@ -30,7 +30,9 @@ createApp({
             // splash 
             showSplash: true,
             // dropdown
-            dropdownVisible: false, 
+            dropdownVisible: false,
+            // contatto attivo 
+            activeContact: null, 
 
             contacts: [
                 {
@@ -195,7 +197,7 @@ createApp({
                     ],
                 }
             ],
-            activeContact: null // Contatto attivo corrente
+            
         }
     },
     // Utilizziamo la proprietà computed "filterinContacts" per restituire un array di contatti filtrati nel searchContacts
@@ -222,26 +224,38 @@ createApp({
         sendMessage(text) {
             // Controlla che il testo non sia vuoto
             if (!text) return;
-            
-            const newMessage = {
-                date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
-                message: text,
-                status: 'sent',
-                showOptions: false
-            };
-            
-            this.activeContact.messages.push(newMessage);
-            console.log(`Messaggio inviato: "${text}" to ${this.activeContact.name}`);
 
-            // Dopo 1 secondo, ricevi una risposta automatica
+          // Simula "sta scrivendo..." per 1 secondo
+        this.activeContact.isTyping = true;
+        setTimeout(() => {
+            this.activeContact.isTyping = false;
+            // Simula "online" per 2 secondi
+            this.activeContact.lastSeen = 'online';
             setTimeout(() => {
-                this.receiveMessage();
-             
-            }, 1000);
+                // Mostra l'ultimo accesso
+                this.activeContact.lastSeen = DateTime.now().setLocale('it').toFormat('HH:mm');
+            }, 2000);
+        }, 1000);
 
-            // Resetta l'input del messaggio
-            this.messageText = '';
-        },
+        const newMessage = {
+            date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
+            message: text,
+            status: 'sent',
+            showOptions: false
+        };
+        
+        this.activeContact.messages.push(newMessage);
+        console.log(`Messaggio inviato: "${text}" to ${this.activeContact.name}`);
+
+        // Dopo 1 secondo, ricevi una risposta automatica
+        setTimeout(() => {
+            this.receiveMessage();
+         
+        }, 1000);
+
+        // Resetta l'input del messaggio
+        this.messageText = '';
+    },
         receiveMessage() {
             const responseMessage = {
                 date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),

@@ -264,8 +264,11 @@ main {
 }
 
 .chat-info p {
-    color: #aaa;
+    margin-top: 2px;
+    color: #009688;
 }
+
+
 
 /* Regole messaggi */
 .chat-messages {
