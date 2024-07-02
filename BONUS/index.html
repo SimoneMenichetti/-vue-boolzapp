@@ -81,7 +81,10 @@
             <div class="chat-container">
                 <div v-if="!activeContact" class="welcome-message">
                     <h2>Benvenuto!</h2>
+                    <br>
                     <p>Seleziona un contatto dalla lista per visualizzare i suoi messaggi.</p>
+                    <br>
+                    <p>Ricorda puoi anche cambiare la modalità da light a dark cliccando sulla luna!</p>
                 </div>
                 <div v-else>
                     <!-- Chat attiva -->
@@ -98,7 +101,7 @@
                         <!-- inserimento stato online dopo l invio da parte del pc del messaggio -->
                         <p v-else-if="activeContact.lastSeen === 'online'">Online</p>
                         <!-- ultimo accesso effettuato -->
-                        <p v-else>Ultimo accesso alle {{ activeContact.lastSeen }}</p>
+                        <p v-else  v-if="showLastaccess">Ultimo accesso alle {{ activeContact.lastSeen }}</p>
                     </div>
                     <div class="chat-icons-sidebar">
                         <i class="fa-solid fa-moon" @click="toggleDarkMode"></i>

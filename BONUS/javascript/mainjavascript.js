@@ -33,23 +33,8 @@ createApp({
             dropdownVisible: false,
             // contatto attivo 
             activeContact: null,
-            // creazione array di frasi casuali 
-            
-              // Aggiungiamo la lista delle frasi meme
-              randomAnswers: [
-                "Il mio unicorno ha bisogno di un caffè.",
-                "Ho perso il filo del discorso... Ah, ecco, era di lana.",
-                "Risolto un bug, creati altri dieci.",
-                "Ho chiuso il div, possiamo andare a pranzo.",
-                "Se la vita ti dà limoni, fai un lancio di limoni.",
-                "HTML, CSS, JavaScript... e un pizzico di magia.",
-                "Un deploy al venerdì pomeriggio? Cosa potrebbe andare storto?",
-                "Verso l'infinito e oltre",
-                "Non è facile essere perfetti, ma qualcuno deve pur farlo.",
-                "Sono confuso, quindi esisto.",
-                "JavaScript: un linguaggio, infinite possibilità di sbagliare.",
-                "CSS is awesome. Just kidding, it's a nightmare.",
-            ],
+            // stato ultimo accesso
+            showLastaccess: false,
 
             contacts: [
                 {
@@ -134,6 +119,7 @@ createApp({
                             status: 'received'
                         }
                     ],
+                    
                 },
                 {
                     name: 'iL Mac',
@@ -212,7 +198,25 @@ createApp({
                             status: 'received'
                         }
                     ],
+
+                   
                 }
+            ],
+
+             // creazione array di frasi casuali da inserire al recivemessage
+             randomAnswers: [
+                "Il mio unicorno ha bisogno di un caffè.",
+                "Ho perso il filo del discorso... Ah, ecco, era di lana.",
+                "Risolto un bug, creati altri dieci.",
+                "Ho chiuso il div, possiamo andare a pranzo.",
+                "Se la vita ti dà limoni, fai un lancio di limoni.",
+                "HTML, CSS, JavaScript... e un pizzico di magia.",
+                "Un deploy al venerdì pomeriggio? Cosa potrebbe andare storto?",
+                "Verso l'infinito e oltre",
+                "Non è facile essere perfetti, ma qualcuno deve pur farlo.",
+                "Sono confuso, quindi esisto.",
+                "JavaScript: un linguaggio, infinite possibilità di sbagliare.",
+                "CSS is awesome. Just kidding, it's a nightmare.",
             ],
             
         }
@@ -239,7 +243,9 @@ createApp({
             console.log(`contatto attivo: ${contact.name}`);
         },
         sendMessage(text) {
-              // Controlla che il testo non sia vuoto o composto solamente da spazi
+        // Mostra l'ultimo accesso dopo aver inviato un messaggio e ricevuto una risposta
+        this.showLastaccess = true;
+        // Controlla che il testo non sia vuoto o composto solamente da spazi
         if (!text.trim()) return;
 
           // Simula "sta scrivendo..." per 1 secondo
@@ -267,17 +273,23 @@ createApp({
         // Dopo 1 secondo, ricevi una risposta automatica
         setTimeout(() => {
             this.receiveMessage();
-         
         }, 1000);
 
         // Resetta l'input del messaggio
         this.messageText = '';
+        
     },
+
+     
         receiveMessage() {
 
              // Seleziona una frase casuale dalla lista delle frasi meme del nuovo array utilizzando mathfloor per generarla casualmente
-            const randomAnswere = this.randomAnswers[Math.floor(Math.random() * this.randomAnswers.length)];
-            
+                const randomAnswere = this.randomAnswers[Math.floor(Math.random() * this.randomAnswers.length)];
+            //  logica per mostrare l'ultimo accesso solo dopo aver ricevuto una risposta
+            if (this.activeContact && this.activeContact.messages.length === 1) {
+                this.showLastaccess= true;
+            }
+
             const responseMessage = {
                 date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                 message: randomAnswere ,
@@ -287,7 +299,7 @@ createApp({
             
             this.activeContact.messages.push(responseMessage);
             // Verifica Messaggio ricevuto 
-            console.log(`Messaggio ricevuto: "Let's go" from ${this.activeContact.name}`);
+            console.log(`Messaggio ricevuto: "${randomAnswere}" from ${this.activeContact.name}`);
         },
 
         // function per delete messaggi
