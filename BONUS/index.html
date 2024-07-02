@@ -93,7 +93,12 @@
                      
                     <div class="chat-info">
                         <h3>{{ activeContact.name }}</h3>
-                        <p>Ultimo accesso oggi alle ore 12:00</p>
+                        <!-- inserimento stato sta scrivendo al momento della risposta del pc  -->
+                        <p v-if="activeContact.isTyping">Sta scrivendo...</p>
+                        <!-- inserimento stato online dopo l invio da parte del pc del messaggio -->
+                        <p v-else-if="activeContact.lastSeen === 'online'">Online</p>
+                        <!-- ultimo accesso effettuato -->
+                        <p v-else>Ultimo accesso alle {{ activeContact.lastSeen }}</p>
                     </div>
                     <div class="chat-icons-sidebar">
                         <i class="fa-solid fa-moon" @click="toggleDarkMode"></i>

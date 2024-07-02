@@ -32,7 +32,24 @@ createApp({
             // dropdown
             dropdownVisible: false,
             // contatto attivo 
-            activeContact: null, 
+            activeContact: null,
+            // creazione array di frasi casuali 
+            
+              // Aggiungiamo la lista delle frasi meme
+              randomAnswers: [
+                "Il mio unicorno ha bisogno di un caffè.",
+                "Ho perso il filo del discorso... Ah, ecco, era di lana.",
+                "Risolto un bug, creati altri dieci.",
+                "Ho chiuso il div, possiamo andare a pranzo.",
+                "Se la vita ti dà limoni, fai un lancio di limoni.",
+                "HTML, CSS, JavaScript... e un pizzico di magia.",
+                "Un deploy al venerdì pomeriggio? Cosa potrebbe andare storto?",
+                "Verso l'infinito e oltre",
+                "Non è facile essere perfetti, ma qualcuno deve pur farlo.",
+                "Sono confuso, quindi esisto.",
+                "JavaScript: un linguaggio, infinite possibilità di sbagliare.",
+                "CSS is awesome. Just kidding, it's a nightmare.",
+            ],
 
             contacts: [
                 {
@@ -222,8 +239,8 @@ createApp({
             console.log(`contatto attivo: ${contact.name}`);
         },
         sendMessage(text) {
-            // Controlla che il testo non sia vuoto
-            if (!text) return;
+              // Controlla che il testo non sia vuoto o composto solamente da spazi
+        if (!text.trim()) return;
 
           // Simula "sta scrivendo..." per 1 secondo
         this.activeContact.isTyping = true;
@@ -257,9 +274,13 @@ createApp({
         this.messageText = '';
     },
         receiveMessage() {
+
+             // Seleziona una frase casuale dalla lista delle frasi meme del nuovo array utilizzando mathfloor per generarla casualmente
+            const randomAnswere = this.randomAnswers[Math.floor(Math.random() * this.randomAnswers.length)];
+            
             const responseMessage = {
                 date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
-                message: "Let's go",
+                message: randomAnswere ,
                 status: 'received',
                 showOptions: false
             };

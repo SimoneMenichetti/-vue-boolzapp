@@ -339,6 +339,7 @@ main {
 .message-menu li:hover {
     background-color: #f2f2f2;
 }
+/* togglemenu cancellazione messaggio */
 
 .togglemenu{
     text-align: right;
@@ -483,3 +484,4 @@ body.dark-mode .message-menu li{
     padding: 20px;
     text-align: center;
 }
+
