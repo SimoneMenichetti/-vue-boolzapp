@@ -112,6 +112,34 @@ main {
     color: #B1B1B1;
 }
 
+/* menu toggle chat icons */
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #333;
+    border: 1px solid #444;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    border-radius: 10%;
+}
+
+.dropdown-menu button {
+    background: none;
+    border: none;
+    color: #eaeaea;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.dropdown-menu button:hover {
+    background-color: #444;
+}
+
 /* Stile e regole delle icone del messaggio di input */
 .icon-input {
     display: flex;

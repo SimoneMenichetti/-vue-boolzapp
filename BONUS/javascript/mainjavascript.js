@@ -29,6 +29,8 @@ createApp({
             DarkMode: false,
             // splash 
             showSplash: true,
+            // dropdown
+            dropdownVisible: false, 
 
             contacts: [
                 {
@@ -288,8 +290,30 @@ createApp({
                 document.body.classList.add('light-mode');
                 document.body.classList.remove('dark-mode');
             }
-        }
+        },
         
+        toggleDropdown() {
+            this.dropdownVisible = !this.dropdownVisible;
+        },
+
+        // funzione con condizione di eliminazione chat 
+       
+        deleteChat() {
+            if (this.activeContact) {
+                const index = this.contacts.indexOf(this.activeContact);
+                if (index > -1) {
+                    this.contacts.splice(index, 1);
+                    this.activeContact = null;
+                }
+                this.dropdownVisible = false;
+            }
+        },
+        // evento per la chiusura del menu toggle dell eliminazione chat
+        closeDropdown(event) {
+            if (!this.$refs.dropdownMenu.contains(event.target)) {
+                this.dropdownVisible = false;
+            }
+        }
     },
     
     

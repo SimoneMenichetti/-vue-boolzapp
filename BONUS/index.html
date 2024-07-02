@@ -90,6 +90,7 @@
                     <div class="avatar">
                         <img :src="activeContact.avatar" :alt="activeContact.name">
                     </div>
+                     
                     <div class="chat-info">
                         <h3>{{ activeContact.name }}</h3>
                         <p>Ultimo accesso oggi alle ore 12:00</p>
@@ -98,7 +99,11 @@
                         <i class="fa-solid fa-moon" @click="toggleDarkMode"></i>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <!-- inserimento toggledropdown per delete delle chat -->
+                        <i class="fa-solid fa-ellipsis-vertical" @click="toggleDropdown"></i>
+                        <div v-if="dropdownVisible" class="dropdown-menu">
+                            <button @click="deleteChat">Elimina chat</button>
+                        </div>
                     </div>
                 </div>
                 <!-- Messaggi inviati e ricevuti -->
