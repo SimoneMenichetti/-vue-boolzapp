@@ -296,7 +296,7 @@ createApp({
     mounted() {
         // Imposta il primo contatto come attivo all'avvio della pagina
         if (this.contacts.length > 0) {
-            this.activeContact = this.contacts[0];
+            // this.activeContact = this.contacts[0];
         }
 
         document.body.classList.add('light-mode');

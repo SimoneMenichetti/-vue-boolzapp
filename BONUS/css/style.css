@@ -393,6 +393,7 @@ body.dark-mode .contact:hover{
 
 body.dark-mode .contact.active{
     background-color: #009688;
+    border: solid #555 1px;
 }
 
 body.dark-mode .input-search input, body.dark-mode .chat-input input {
@@ -438,4 +439,16 @@ body.dark-mode .message-menu li{
 .splash-hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+/* messaggio di benvenuto e descrizione  */
+.welcome-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #eaeaea;
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
 }

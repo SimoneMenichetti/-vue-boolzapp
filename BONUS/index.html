@@ -79,6 +79,13 @@
             </div>
             <!-- Container delle chat effettuate -->
             <div class="chat-container">
+                <div v-if="!activeContact" class="welcome-message">
+                    <h2>Benvenuto!</h2>
+                    <p>Seleziona un contatto dalla lista per visualizzare i suoi messaggi.</p>
+                </div>
+                <div v-else>
+                    <!-- Chat attiva -->
+                </div>
                 <div class="chat-header" v-if="activeContact">
                     <div class="avatar">
                         <img :src="activeContact.avatar" :alt="activeContact.name">
